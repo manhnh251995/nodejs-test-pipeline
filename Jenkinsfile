@@ -37,7 +37,7 @@ pipeline {
     }
     stage("DEPLOY to PROD"){
       when {
-        branch 'release'
+        branch 'relese'
       }
       agent { label 'prod' }
       steps {

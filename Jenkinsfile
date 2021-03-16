@@ -4,6 +4,9 @@ pipeline {
   IMAGE = "toja03"
   PASSWORD = credentials("docker-registry-pass")
   }
+  options {
+        timeout(time: 1, unit: 'MINUTES') 
+    }
   stages {
     stage("Build Image") {
       agent { label 'master' }

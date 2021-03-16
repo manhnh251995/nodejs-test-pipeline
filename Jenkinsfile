@@ -6,7 +6,7 @@ pipeline {
   }
   stages {
     stage("Build Image") {
-      agent { lable 'master'}
+      agent { label 'master' }
       steps {
 	sh'''
 	echo "Build docker image"
@@ -15,7 +15,7 @@ pipeline {
       }
     }
     stage("PUSH NEW IMGAE TO REGISTRY"){
-      agent { lable 'master'}
+      agent { label 'master' }
       steps {
         sh'''
           echo "Push new image to registry"
@@ -27,7 +27,7 @@ pipeline {
       when {
         branch 'staging'
       }
-      agent { lable jenkin02 }
+      agent { label 'jenkins02' }
       steps {
         sh'''
           echo "Deploy to $BRANCH_NAME"
@@ -39,7 +39,7 @@ pipeline {
       when {
         branch 'release'
       }
-      agent { lable prod }
+      agent { label 'prod' }
       steps {
         sh'''
           echo "Deploy to $BRANCH_NAME"

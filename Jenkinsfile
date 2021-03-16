@@ -27,7 +27,7 @@ pipeline {
       when {
         branch 'staging'
       }
-      agent { label 'jenkins02' }
+      agent { label 'jenkin02' }
       steps {
         sh'''
           echo "Deploy to $BRANCH_NAME"

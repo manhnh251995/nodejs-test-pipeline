@@ -37,9 +37,9 @@ pipeline {
     }
     stage("DEPLOY to PROD"){
       when {
-        branch 'release'
+        branch 'relese'
       }
-      agent { lable prod }
+      agent { lable 'prod' }
       steps {
         sh'''
           echo "Deploy to $BRANCH_NAME"

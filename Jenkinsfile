@@ -25,9 +25,7 @@ pipeline {
     }
     stage("DEPLOY to staging"){
       when {
-        expression {
-            return env.BRANCH_NAME == 'staging';
-        }
+         branch 'staging'
       }
       agent { label 'jenkin02' }
       steps {
@@ -39,9 +37,7 @@ pipeline {
     }
     stage("DEPLOY to PROD"){
       when {
-        expression {
-            return env.BRANCH_NAME == 'relese';
-        }
+        branch 'relese'
       }
       agent { label 'prod' }
       steps {
